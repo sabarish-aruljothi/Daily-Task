@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Validation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h3>Task 1: Input dynamic value updation when typing</h3>
+    <label for="rollNumber">Enter your number</label>
+    <input type="text" placeholder="Enter your number" id="rollNumber">
+    <p  id="updateValue"></p>
+
+<h3>Task 2: Input dynamic value updation only after clicking outside</h3>
+    <label for="rollNumber2">Enter your number</label>
+    <input type="text" placeholder="Enter your number" id="rollNumber2">
+    <p  id="changedValue"></p>
+
+    <h3>Task 3: Increassing the count with arrow keys</h3>
+    <label for="keyUPdown">Enter your number</label>
+    <input type="text" placeholder="Enter your number" id="rollNumber3">
+    <p  id="changedValue"></p>
+</body>
+<script>
+document.getElementById("rollNumber").addEventListener("input",(e)=>{
+    let value=e.target.value;
+    document.getElementById("updateValue").textContent=`You have enterd: ${value}`;
+});
+
+document.getElementById("rollNumber2").addEventListener("change",e=>{
+    let changedValue= e.target.value;
+    document.getElementById("changedValue").textContent=changedValue;
+})
+document.getElementById("rollNumber3").addEventListener("keyup",e=>{
+    if(e.key == "ArrowUp"){
+    console.log(e.target.value)
+    }
+})
+
+</script>
+</html>

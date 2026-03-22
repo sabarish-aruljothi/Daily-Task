@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D3 Data Parmeter</title>
+</head>
+<body>
+    
+<div class="groupA">
+    <p data-price="100">It has a price of 100</p>
+</div>
+<div class="groupB">
+    <p data-price="200">It has a price of 200</p>
+</div>
+<button class="btn">Click here</button>
+</body>
+
+
+<script>
+
+
+function add(a,b){
+    const total=a+b;
+    let result=document.createElement("h4");
+    let resultMessage=result.innerHTML=`the total is ${total}`
+    let printed =document.querySelector("body").append(resultMessage);
+}
+
+
+let btnClicked=document.querySelector(".btn").addEventListener("click",e =>{
+const price1 = document.querySelector(".groupA p").getAttribute("data-price");
+const price2 = document.querySelector(".groupB p").getAttribute("data-price");
+const convertedPrice1 =Number(price1);
+const convertedPrice2 =Number(price2);
+add(convertedPrice1,convertedPrice2)
+})
+
+
+
+
+</script>
+</html>

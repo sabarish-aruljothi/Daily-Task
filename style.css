@@ -1,0 +1,235 @@
+/* =========================
+   1. RESET
+   ========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  padding: 10px;
+}
+
+ul, ol { list-style: none; }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* =========================
+   2. DARK DESIGN TOKENS
+   ========================= */
+
+:root {
+/* font size */
+  --text-xs: 0.75rem;   /* 12px */
+  --text-sm: 0.875rem;  /* 14px */
+  --text-base: 1rem;    /* 16px (default) */
+  --text-md: 1.125rem;  /* 18px */
+  --text-lg: 1.25rem;   /* 20px */
+  --text-xl: 1.5rem;    /* 24px */
+  --text-2xl: 1.875rem; /* 30px */
+  --text-3xl: 2.25rem;  /* 36px */
+
+  /* Backgrounds */
+  --bg-main: #0f0f10;
+  --bg-surface: #18181b;
+  --bg-elevated: #222226;
+
+  /* Text */
+  --text-primary: #f4f4f5;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+
+  /* Borders */
+  --border-color: #2e2e33;
+
+  /* Accent */
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+
+  /* Status */
+  --success: #22c55e;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+
+  /* Typography */
+  --font-base: system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+
+  /* Spacing (8px scale) */
+  --space-1: 0.5rem;
+  --space-2: 0.75rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+
+  /* Shadow (subtle for dark UI) */
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+/* =========================
+   3. BASE
+   ========================= */
+
+body {
+  font-family: var(--font-base);
+  font-size: var(--text-base);
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: var(--space-2);
+}
+
+/* Paragraph */
+p {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-3);
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: var(--space-3);
+}
+
+/* =========================
+   4. UI COMPONENTS
+   ========================= */
+
+/* Card */
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Button */
+button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background: var(--accent-hover);
+}
+
+/* Secondary button */
+.button-secondary {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.button-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Input */
+input {
+  width: 100%;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  padding: var(--space-1);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+}
+
+input::placeholder {
+  color: var(--text-muted);
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* =========================
+   5. UTILITIES
+   ========================= */
+
+.flex { display: flex; }
+.grid { display: grid; }
+
+.mt-1 { margin-top: var(--space-1); }
+.mt-2 { margin-top: var(--space-2); }
+.mt-3 { margin-top: var(--space-3); }
+
+.mb-1 { margin-bottom: var(--space-1); }
+.mb-2 { margin-bottom: var(--space-2); }
+.mb-3 { margin-bottom: var(--space-3); }
+
+.text-center { text-align: center; }
+
+/* font sizes */
+body {
+  font-size: var(--text-base);
+}
+
+h1 { font-size: var(--text-3xl); }
+h2 { font-size: var(--text-2xl); }
+h3 { font-size: var(--text-xl); }
+label,
+h4 { font-size: var(--text-lg); }
+
+p {
+  font-size: var(--text-base);
+}
+
+small {
+  font-size: var(--text-sm);
+}
+
+/* Display */
+.d-none         { display: none; }
+.d-block        { display: block; }
+.d-inline       { display: inline; }
+.d-inline-block { display: inline-block; }
+.d-flex         { display: flex; }
+.d-inline-flex  { display: inline-flex; }
+.d-grid         { display: grid; }

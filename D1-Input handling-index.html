@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Handling</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Input Handling</h2>
+    <label for="userFirstInput">Enter the first number</label>
+    <input type="number" id="userFirstInput">
+       <label for="userSecondInput">Enter the second number</label>
+    <input type="number" id="userSecondInput">
+    <button id="btn">Click here</button>
+    
+</body>
+<!-- Script -->
+<script>
+const btnClicked=document.getElementById("btn");
+btnClicked.addEventListener("click", (event)=>{
+    const firstNumber = document.getElementById("userFirstInput");
+    const secondNumber = document.getElementById("userSecondInput");
+    const total = Number(firstNumber.value) + Number(secondNumber.value);
+    console.log(total);
+})
+
+
+</script>
+</html>

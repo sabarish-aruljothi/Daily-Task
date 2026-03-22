@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data attribute Handling</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+   <div>
+    <p data-price1="100">The price is 100</p>
+   </div>
+    <div>
+    <p data-price2="200">The price is 200</p>
+   </div>
+    <button id="btn">Click here</button>
+    
+</body>
+<!-- Script --> 
+
+ <script>
+    
+     function add ( a,b){
+const convertedPrice1 = Number(a)
+const convertedPrice2 = Number(b)
+const total = convertedPrice1 + convertedPrice2;
+let message=document.createElement("h1");
+let messageContent=message.innerText="The total is";
+
+let messagePath= document.querySelector("body");
+messagePath.append(messageContent);
+
+}
+const trigger = document.getElementById("btn");
+trigger.addEventListener('click', (e)=>{
+     const price1= document.querySelector("[data-price1]");
+     const price2=document.querySelector("[data-price2]");
+     const price1Value = price1.dataset.price1;
+     const price2Value = price2.dataset.price2;
+    
+ add (price1Value,price2Value)
+})
+</script>
+</html>
