@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="contactForm">
+  <div>
+    <label>Name</label>
+    <input type="text" id="name" />
+    <span id="nameError"></span>
+  </div>
+
+  <div>
+    <label>Email</label>
+    <input type="email" id="email" />
+    <span id="emailError"></span>
+  </div>
+
+  <button id="submit" type="submit">Submit</button>
+  <span id="sucessmessage"></span>
+</form>
+<script>
+
+        let submit=document.getElementById("submit").addEventListener("click", e =>{
+        e.preventDefault();
+        let name=document.getElementById("name")
+        let email=document.getElementById("email")
+        if (name.value.trim() ) {
+        console.log("mesaage")
+        document.getElementById("nameError").textContent = "";
+        }else{
+        document.getElementById("nameError").textContent="Enter your name";
+        }
+        if (email.value.includes("@") ){
+        console.log("mesaageemail")
+        document.getElementById("emailError").textContent = "";
+
+        }
+        else{
+        document.getElementById("emailError").textContent="Enter your mailid";
+        }
+        if (name.value.trim()  && email.value.includes("@")  ) {
+        document.getElementById("sucessmessage").textContent="form submitted sucessfully";
+        window.location.href="D5-submit.html?name=" + name.value + "&email=" + email.value;}
+        else{ document.getElementById("sucessmessage").textContent=""}
+        })
+
+
+
+
+</script>
+    
+</body>
+</html>
