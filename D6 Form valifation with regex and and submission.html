@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D6 Form valifation with regex and and submission</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="contactForm">
+  <div>
+    <label> First Name</label>
+    <input type="text" id="firstName" class="UserName" placeholder="Enter your first name" />
+    <span class="nameError"></span>
+  </div>
+
+  <div>
+    <label>Last Name</label>
+    <input type="text" id="LastName" class="UserName" placeholder="Enter your last name " />
+    <span class="nameError"></span>
+  </div>
+
+  <div>
+    <label>Email</label>
+    <input type="email" id="email" placeholder="Enter your email "/>
+    <span class="emailError"></span>
+  </div>
+
+  <button id="submit" type="submit">Submit</button>
+  <span id="sucessmessage"></span>
+</form>
+<script>
+let name=document.querySelectorAll(".UserName");
+let emailPattern=/^([a-zA-Z0-9_\-\+\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,9})$/;
+let pattern =  /^[a-zA-Z]+$/;
+
+
+
+name.forEach(inputs => {
+inputs.addEventListener("input",e=>{
+  let userValue = e.target.value;
+    if (pattern.test(userValue)){
+    e.target.nextElementSibling.textContent=""
+    }
+    else{
+    e.target.nextElementSibling.textContent="Special characters or spaces are not allowed"
+    }
+});
+});
+let emailVaidation=document.getElementById("email");
+emailVaidation.addEventListener("input",e=>{
+  if(emailPattern.test(e.target.value)){
+    e.target.nextElementSibling.textContent="";
+    }
+    else{
+    e.target.nextElementSibling.textContent="Email is invaild";
+
+    }
+    })
+
+let submission = document.getElementById("submit").addEventListener("click",e=>{
+e.preventDefault();
+
+
+
+let firstName=document.getElementById("firstName").value.trim();
+let LastName=document.getElementById("LastName").value.trim();
+let emailValue = document.getElementById("email").value;
+
+
+let isValid = true;
+if(!pattern.test(firstName)){isValid = false}
+if(!pattern.test(LastName)){isValid = false}
+if(!emailPattern.test(emailValue)){isValid = false}
+
+if( isValid){
+localStorage.setItem("firstName", firstName);
+localStorage.setItem("lastName", LastName);
+localStorage.setItem("email", emailValue);
+window.location.href = "D5-submit.html";
+}
+})
+
+
+
+</script>
+</html>

@@ -16,5 +16,14 @@
     let name= linkParameter.get("name");
     let mail=linkParameter.get("email")
     document.getElementById("result").textContent=`Your name is ${name} and your mail id is ${mail}`
+let firstName = localStorage.getItem("firstName");
+let lastName = localStorage.getItem("lastName");
+let email = localStorage.getItem("email");
+
+document.getElementById("result").textContent = `Your name is ${firstName} ${lastName} and your email is ${email}`;
+
+localStorage.removeItem("firstName");
+localStorage.removeItem("lastName");
+localStorage.removeItem("email");
 </script>
 </html>
