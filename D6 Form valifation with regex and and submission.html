@@ -14,7 +14,7 @@
     <span class="nameError"></span>
   </div>
 
-  <div>
+  <div> 
     <label>Last Name</label>
     <input type="text" id="LastName" class="UserName" placeholder="Enter your last name " />
     <span class="nameError"></span>
@@ -59,7 +59,7 @@ emailVaidation.addEventListener("input",e=>{
     })
 
 let submission = document.getElementById("submit").addEventListener("click",e=>{
-e.preventDefault();
+e.preventDefault()
 
 
 
@@ -78,6 +78,9 @@ localStorage.setItem("firstName", firstName);
 localStorage.setItem("lastName", LastName);
 localStorage.setItem("email", emailValue);
 window.location.href = "D5-submit.html";
+}
+else{
+  
 }
 })
 

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bundled-data-handling</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Bundled data handling</h1>
+    <h2>Example: Handling Bundled Data</h2>
+    <form id="userDetails">
+   <input class="mb-2" type="text" name="Email" id="email" placeholder="Enter your email">
+    <input class="mb-2" type="text" name="FirstName" id="firstName" placeholder="Enter your first name">
+    <input class="mb-2" type="text" name="LastName" id="lastName" placeholder="Enter your last name">
+    <button class="mb-3" id="submit">Submit</button>
+    <h2 id="output"></h2>
+
+    </form>
+ 
+</body>
+<script>
+    document.getElementById("submit").addEventListener("click", e =>{
+        e.preventDefault();
+    let formSubmission = document.getElementById("userDetails");
+let data = new FormData(formSubmission);
+let eachData = Object.fromEntries(data);
+console.log(eachData.Email) 
+document.getElementById("output").textContent= `Your firstname is ${eachData.FirstName} and last name is ${eachData.LastName} and the mail id is ${eachData.Email}`;
+})
+</script>
+</html>
+
+
+
