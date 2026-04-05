@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AJAX Practice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2 id="name">Name:Loading....................</h2>
+    <h2 id="email">Email:Loading....................</h2>
+    <h2 id="website">City:Loading....................</h2>
+    <button id="nextCall">Nextcall</button>
+</body>
+<script>
+    async function firstAjax(){
+       let firstCall = await fetch("https://jsonplaceholder.typicode.com/users/1");
+       let data = await firstCall.json();
+       console.log(data);
+        document.getElementById("name").textContent = `Name:${data.name}`;
+        document.getElementById("email").textContent = `Email:${data.email}`;
+        document.getElementById("website").textContent = `City:${data.address.city}`;
+
+    }
+    firstAjax();
+    async function secondAjax(){
+       let firstCall = await fetch("https://jsonplaceholder.typicode.com/users/2");
+       let data = await firstCall.json();
+       console.log(data);
+        document.getElementById("name").textContent = `Name:${data.name}`;
+        document.getElementById("email").textContent = `Email:${data.email}`;
+        document.getElementById("website").textContent = `City:${data.address.city}`;
+
+    }
+    document.getElementById("nextCall").addEventListener("click",e=>{
+
+        secondAjax();
+    })
+    // async function thirdAjax(){
+    //    let firstCall = await fetch("https://jsonplaceholder.typicode.com/users/3");
+    //    let data = await firstCall.json();
+    //    console.log(data);
+    //     document.getElementById("name").textContent = `Name:${data.name}`;
+    //     document.getElementById("email").textContent = `Email:${data.email}`;
+    //     document.getElementById("website").textContent = `City:${data.company.name}`;
+
+    // }
+
+    //     thirdAjax();
+   
+
+
+</script>
+</html>
