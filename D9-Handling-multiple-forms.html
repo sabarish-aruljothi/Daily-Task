@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handling-multiple-forms</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+       <form id="userDetails">
+   <input class="mb-2" type="text" name="Email" id="email" placeholder="Enter your email">
+    <input class="mb-2" type="text" name="FirstName" id="firstName" placeholder="Enter your first name">
+    <input class="mb-2" type="text" name="LastName" id="lastName" placeholder="Enter your last name">
+    <button class="mb-3" id="submit">Submit</button>
+</form>
+   <form id="userDetails2">
+   <input class="mb-2" type="text" name="Email" id="email2" placeholder="Enter your email">
+    <input class="mb-2" type="text" name="FirstName" id="firstName2" placeholder="Enter your first name">
+    <input class="mb-2" type="number" name="mobile" id="mobileNumber" placeholder="Enter your number">
+    <button class="mb-3" id="submit2">Submit</button>
+</form>
+   <form id="userDetails3">
+   <input class="mb-2" type="text" name="Email" id="email3" placeholder="Enter your email">
+    <input class="mb-2" type="text" name="FirstName" id="firstName3" placeholder="Enter your first name">
+    <button class="mb-3" id="submit3">Submit</button>
+</form>
+</body>
+<script>
+    function call(formID){
+
+let getFormData = new FormData(formID);
+let data = Object.fromEntries(getFormData) 
+console.log(data)
+
+}
+document.querySelectorAll("form button").forEach(button=>{
+
+button.addEventListener("click",e=>{
+e.preventDefault();
+call(button.parentElement)
+
+})
+})
+</script>
+
+
+
+
+</html>
