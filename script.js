@@ -19,10 +19,11 @@ email.forEach((element) => {
 firstName.forEach((e) => {
   e.addEventListener("input", (e) => {
     let namePattern = /^[a-zA-Z]+$/;
-     if (!namePattern.test(e.target.value)) {
+     if (e.target.value == "")  {
+           e.target.nextElementSibling.textContent = "";
+    } else if (!namePattern.test(e.target.value) ) {
       e.target.nextElementSibling.textContent = "Space and special characters are not allowed";
-    } else if (e.target.value == "") {
-      e.target.nextElementSibling.textContent = "";
+
     } else {
       e.target.nextElementSibling.textContent = "";
     }
@@ -45,7 +46,25 @@ phone.forEach((e) => {
 document.querySelectorAll("form button").forEach(e=>{
     e.addEventListener("click",element=>{
         element.preventDefault();
-
-       document.querySelector("h1").textContent=`Your email is ${email.value} and the name is${firstName.value} and the mobile number is ${phone.value}`;
+     let isValid=true;
+     document.querySelectorAll("input").forEach((e)=>{
+      if (e.value==""){isValid= false}
+      })
+     if (isValid){
+print(e.parentElement);
+     }
+     else {
+      e.nextElementSibling.textContent="fill the details"
+     }
     })
 })
+
+function print(formDetails){
+  let details = new FormData(formDetails);
+ let detailsExtract= Object.fromEntries(details);
+ document.querySelector("h1").textContent=`Your name is ${detailsExtract.name} and the mail is ${detailsExtract.email} and the number is ${detailsExtract.phone}`
+
+}
+
+
+
