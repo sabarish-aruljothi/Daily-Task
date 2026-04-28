@@ -1,72 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Validation with object class and forms</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <form >
-    <label for="studentName">Name</label>
-    <input type="text" id="studentName" name="studentName" required>
-    <span class="error-message" id="nameError"></span>
-    <label for="studentAge">Age</label>
-    <input type="number" id="studentAge" name="studentAge" required>
-    <span class="error-message" id="ageError"></span>
-    <label for="studentMark">Mark</label>
-    <input type="number" id="studentMark" name="studentMark" required>
-    <span class="error-message" id="markError"></span>
-    <button class="mt-3" type="submit">Submit</button>
+    <form>
+        <label for="studentName">Name</label>
+        <input type="text" id="studentName" name="studentName" required>
+        <span class="error-message" id="nameError"></span>
+        <label for="studentAge">Age</label>
+        <input type="number" id="studentAge" name="studentAge" required>
+        <span class="error-message" id="ageError"></span>
+        <label for="studentMark">Mark</label>
+        <input type="number" id="studentMark" name="studentMark" required>
+        <span class="error-message" id="markError"></span>
+        <button class="mt-3" type="submit">Submit</button>
     </form>
 
-<table id="studentTable">
-    <tr>
-        <th>Name</th>
-        <th>Age</th>
-        <th>Mark</th>
-        <th>Result</th>
-    </tr>
-    
-</table>
+    <table id="studentTable">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Mark</th>
+            <th>Result</th>
+        </tr>
 
-</table>
+    </table>
+
+    </table>
 </body>
 <script>
-class Student{
-    constructor(name,age,mark){
-this.name=name;
-this.age=age
-this.mark=mark;
+    class Student {
+        constructor(name, age, mark) {
+            this.name = name;
+            this.age = age
+            this.mark = mark;
+        }
+        isPass() {
+            return this.mark > 30 ? "Pass" : "Fail";
+        }
     }
-isPass(){
-    return this.mark > 30 ? "Pass" : "Fail";
-}
-    }
+Student("sabari",45,98)
+console.log("student.name")
+
+    document.querySelector("form button").addEventListener("click", e => {
+        e.preventDefault();
+        let studentname = document.getElementById("studentName").value;
+        let studentage = document.getElementById("studentAge").value;
+        let studentmark = document.getElementById("studentMark").value;
+        let result;
+
+     
+
+        let row = document.createElement("tr");
 
 
-document.querySelector("form button").addEventListener("click",e=>{
-    e.preventDefault();
-    let studentname=document.getElementById("studentName").value;
-    let studentage=document.getElementById("studentAge").value;   
-    let studentmark=document.getElementById("studentMark").value;   
-   let student1=new Student(studentname,studentage,studentmark)
-   let row = document.createElement("tr");
-//    row.createElement=`
-//    <td>${studentname}</td>
-//    <td>${studentage}</td>
-//    <td>${studentmark}</td>
-//    <td>${student1.isPass()}</td>`
+        let nameData = document.createElement("td");
+        nameData.textContent = studentname;
+        row.appendChild(nameData);
+        document.getElementById("studentTable").appendChild(row);
 
-let nameData = document.createElement("td").textContent= studentname
-row.appendChild(nameData);
-   document.getElementById("studentTable").appendChild(row)
+        let ageCell = document.createElement("td");
+        ageCell.textContent = studentage;
+        row.appendChild(ageCell);
 
-   console.log(studentname)
-    console.log(student1.age)
-    console.log(student1.isPass())
-    
-})
+        let markCell = document.createElement("td");
+        markCell.textContent = studentmark;
+        row.appendChild(markCell);
+
+  let resultCell = document.createElement("td");
+        resultCell.textContent = result;
+        row.appendChild(resultCell);
+    })
 
 </script>
+
 </html>
